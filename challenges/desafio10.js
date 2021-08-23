@@ -9,6 +9,7 @@ db.trips.aggregate([
       },
     },
   },
+  { $sort: { duracao: 1 } },
   {
     $project: {
       _id: 0,
@@ -17,8 +18,5 @@ db.trips.aggregate([
         $round: ["$duracao", 2],
       },
     },
-  },
-  {
-    $sort: { duracao: 1 },
   },
 ]);
